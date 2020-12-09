@@ -1,0 +1,16 @@
+<div>
+
+    <h1 [style.color]="color" [style.padding]="padding">Welcome {{name}}</h1><br/>
+    <h2>Padding Width is {{padding}}</h2><br/>
+
+    Enter Name: <input type="text" #username />
+    <input type="button" (click)="updateHeader(username)" value="Update Header" /><br/><br/>
+
+    Enter Color: <input type="text" #headerColor />
+    <input type="button" (click)="updateColor(headerColor)" value="Update Color" /><br/><br/>
+
+    Enter Padding: <input [value]="padding" type="number" #paddingData (change)="updatePadding(paddingData)" /><br/><br/>
+
+    Enter Padding: <input [value]="padding" type="number" #paddingData (change)="updatePaddingWithEvents($event)" />
+    
+</div>

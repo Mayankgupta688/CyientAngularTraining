@@ -1,0 +1,9 @@
+<div [class]="themeClass">
+    <h1>{{header}}</h1>
+    <h2>This is How to update Theme...</h2>
+    <input type="button" value="Green Theme" (click)="updateClass('green')" />
+    <input type="button" value="Yellow Theme" (click)="updateClass('yellow')" />
+    <input type="button" value="Yellow Theme" (click)="updateClass('red')" /><br/><br/>
+
+    <input type="button" value="Update Header" (click)="updateHeader()" />
+</div>

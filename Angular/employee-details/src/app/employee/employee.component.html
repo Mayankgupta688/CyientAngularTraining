@@ -1,0 +1,38 @@
+<script>
+  window.getData = function() {
+    alert("Getting Data...")
+  }
+</script>
+
+<div>
+    <div *ngFor="let employee of employeeList" class="card employee_details">
+        <img *ngIf="employee.showImage" [src]="employee.avatar" [title]="employee.name" class="card-img-top" [alt]="employee.name">
+        <div class="card-body">
+          <h5 class="card-title">{{employee.name}}</h5>
+          <h6 *ngIf="employee.id % 2 == 0">Id is Even</h6>
+          <h6 *ngIf="employee.id % 2 == 1">Id is Odd</h6>
+
+          
+          <div class="card-text">
+            <label>Create On: <b>{{employee.createdAt}}</b></label>
+
+            <div *ngIf="!employee.showImage">
+              <b>User with No Image</b>
+            </div>
+          </div>
+          <input type="button" 
+            [disabled]="employee.disableButton"
+            bind-name="employee.name" 
+            [id]="employee.id" 
+            value="Delete {{employee.name}}"
+            on-click="deleteEmployeeById(employee.id)"  />
+
+          <input type="button" 
+            [disabled]="employee.disableButton"
+            [name]="employee.name" 
+            [id]="employee.id" 
+            value="Delete {{employee.name}}"
+            (click)="deleteEmployeeById(employee.id)"  />
+        </div>
+    </div>
+</div>
