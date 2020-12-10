@@ -1,0 +1,18 @@
+<div>
+
+    <div>
+        <h2>User Form</h2>
+        <label>Enter Name: </label><input type="text" [(ngModel)]="sampleStudent.name" /><br/><br/>
+        <label>Enter Age: </label><input type="number" [(ngModel)]="sampleStudent.age" /><br/><br/>
+        <input type="button" value="Submit" (click)="submitForm()" />
+    </div><hr/><br/>
+
+
+    <b>Enter User Name: </b><input type="text" [value]="userName" (keyup)="updateName($event)" /><br/><br/>
+    <label>Entered Name is: {{userName}}</label><br/><br/><hr/>
+    
+    <h1>Two Way Binding</h1>
+    <b>Enter User Name: </b><input type="number" [(ngModel)]="userAge" /><br/><br/>
+    <label>Entered Name is: {{userAge}}</label><br/><br/>
+    <input type="button" (click)="getAge()" value="Get Age" /><br/><br/>
+</div>

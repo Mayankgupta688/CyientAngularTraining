@@ -6,3 +6,4 @@ export default interface IEmployee {
     showImage: boolean,
     disableButton: boolean;
 }
+

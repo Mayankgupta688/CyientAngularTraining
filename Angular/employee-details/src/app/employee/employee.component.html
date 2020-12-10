@@ -5,7 +5,9 @@
 </script>
 
 <div>
-    <div *ngFor="let employee of employeeList" class="card employee_details">
+    <label>Filter Data: </label><input type="text" [ngModel]="filterData" (ngModelChange)="filterEmployeeData($event)" /><br/><br/>
+
+    <div *ngFor="let employee of filterList" class="card employee_details">
         <img *ngIf="employee.showImage" [src]="employee.avatar" [title]="employee.name" class="card-img-top" [alt]="employee.name">
         <div class="card-body">
           <h5 class="card-title">{{employee.name}}</h5>

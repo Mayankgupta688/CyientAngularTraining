@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input type="text" id="userName" onkeyup="updateVariable(event)" />
+        <input type="button" value="Update Variable" onclick="updateData()" />
+    
+
+        <script>
+            var employee = {}
+
+            Object.defineProperty(employee, "userName", {
+                get() {
+                    return this._userName;
+                },
+
+                set(value) {
+                    this._userName = value;
+                document.getElementById("userName").value = this._userName;
+                }
+            })
+
+            function updateVariable(event) {
+                employee.userName = event.target.value;
+            }
+
+            function updateData() {
+                employee.userName = "Anshul";
+            }
+
+            
+        </script>
+    </body>
+</html>

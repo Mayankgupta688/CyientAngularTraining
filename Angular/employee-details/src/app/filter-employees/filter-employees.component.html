@@ -1,0 +1,4 @@
+<div *ngIf="showFilter">
+    <input type="text" placeholder="Enter Employee To Filter" [ngModel]="filterText" (ngModelChange)="raiseEvent($event)" >
+    <input type="button" value="Filter List" (click)="filterData()" />
+</div>

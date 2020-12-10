@@ -1,0 +1,18 @@
+<div>
+    <h1 style="color: red;">The Employee List is Given Below:</h1><br/>
+
+    <b>Employee Length: {{filterList.length}}</b><br/><br/>
+
+    <app-filter-employees [showFilter]="showFilter" (notifyParentToFilter)="filterEmployeeList($event)"></app-filter-employees><br/><br/>
+    <input type="button" (click)="toggleFilter()" value="Toggle Filter" /><br/><br/>
+    <input type="button" (click)="refreshData()" value="Refresh" /><br/><br/>
+    <div *ngFor="let employee of filterList">
+        <app-employee-details 
+        [userName]="userName" 
+        [employeedata]="employee"
+        (notifyParentToDelete)="deleteEmployeeOnParent($event)"
+        ></app-employee-details>
+    </div><hr/>
+
+
+</div>
