@@ -1,5 +1,13 @@
 <div>
     <h1>Employee Name for {{userName}}: {{employeedata.name}}</h1>
-    <h2>Employee Created On: {{employeedata.createdAt}}</h2>
+    <h2>User Name Original: {{employeedata.name}}</h2>
+    <h2>Employee Created On: {{employeedata.createdAt}} {{employeedata.createdAt | changeDate}}</h2>
+    <h3>Salary: {{salary | currency: "EUR" }}</h3>
+    <h4>Original Value: {{salary}}</h4>
+
+    <div *delayRendering>
+        <h4>This Will be rendered in 5 Seconds...</h4>
+        <h5>This is the Template</h5>
+    </div>
     <input type="button" value="Delete {{employeedata.name}}" (click)="deleteEmployee(employeedata.id)" /><hr/><br/>
 </div>

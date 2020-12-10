@@ -35,7 +35,6 @@ export class EmployeeListComponent {
   }
 
   filterEmployeeList(filterValue) {
-    debugger;
     this.filterList = this.employeeList.filter((employee) => {
       return employee.name.indexOf(filterValue) > -1;
     })

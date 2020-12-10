@@ -9,6 +9,7 @@ export class EmployeeDetailsComponent {
   @Input() employeedata: any;
   @Input() userName: string;
   @Output() notifyParentToDelete: EventEmitter<string> = new EventEmitter<string>()
+  salary: number = 100;
   constructor() { }
 
   deleteEmployee(empId: string) {

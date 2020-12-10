@@ -12,6 +12,12 @@ import { FormsModule } from '@angular/forms';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { FilterEmployeesComponent } from './filter-employees/filter-employees.component';
+import { UnderscorePipe } from './pipes/underscore.pipe';
+import { DatePipe } from './pipes/date.pipe';
+import { LengthPipe } from './pipes/length.pipe';
+import { DelayRenderingDirective } from './directives/delayRendering.directive';
+import { UseServiceComponent } from './use-service/use-service.component';
+import { UseServicedataComponent } from './use-servicedata/use-servicedata.component';
 
 @NgModule({
     declarations: [
@@ -22,12 +28,21 @@ import { FilterEmployeesComponent } from './filter-employees/filter-employees.co
         DetailsComponent, 
         ThemeComponent, 
         UpdateHeaderComponent, 
-        TwoWayComponent, EmployeeListComponent, EmployeeDetailsComponent, FilterEmployeesComponent
+        TwoWayComponent, 
+        EmployeeListComponent, 
+        EmployeeDetailsComponent, 
+        FilterEmployeesComponent,
+        UnderscorePipe,
+        DatePipe,
+        LengthPipe,
+        DelayRenderingDirective,
+        UseServiceComponent,
+        UseServicedataComponent
     ],
     imports: [
         BrowserModule, 
         FormsModule
     ],
-    bootstrap: [EmployeeListComponent]
+    bootstrap: [UseServiceComponent, UseServicedataComponent]
 })
 export class AppModule { }
