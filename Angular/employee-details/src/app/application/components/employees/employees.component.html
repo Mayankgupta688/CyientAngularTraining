@@ -6,6 +6,8 @@
     <h5>Current Time is: {{currentTime}}</h5>
 
     <app-filter></app-filter><br/><br/>
+
+    <app-selected></app-selected><br/><br/>
     
     <div *ngFor="let employee of filterList">
         <app-details [employee]="employee"></app-details>

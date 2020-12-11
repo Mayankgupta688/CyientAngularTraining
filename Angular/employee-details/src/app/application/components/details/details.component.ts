@@ -20,4 +20,8 @@ export class DetailsComponent {
     this._dataService.notifyDeleteEvent.emit();
   }
 
+  selectEmployee(empId) {
+    this._dataService.notifyEmployeeSelected.emit(empId);
+  }
+
 }

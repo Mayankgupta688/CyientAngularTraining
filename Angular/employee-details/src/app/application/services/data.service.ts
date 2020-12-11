@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+
+import appUrl from "../../env";
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,8 @@ export class DataService {
   empList: any[] = [];
   notifyDeleteEvent: EventEmitter<void> = new EventEmitter<void>();
   notifyParentToFilter: EventEmitter<string> = new EventEmitter<string>();
+  notifyEmployeeSelected: EventEmitter<string> = new EventEmitter<string>();
+
   someObservable = null;
 
   constructor(private _http: HttpClient) {
@@ -25,13 +29,19 @@ export class DataService {
   }
 
   getEmployeeList(): Observable<any> {
-    return this._http.get("https://5a530e1477e1d20012fa066a.mockapi.io/employeedata");
+
+    if(this.empList.length) {
+      return of(this.empList);
+    }
+
+    return this._http.get(`${appUrl}employeeList`);
   }
 
   deleteEmployee(empId) {
-    this.empList = this.empList.filter((employee) => {
-      return employee.id != empId
-    });
+
+    this._http.delete(`${appUrl}employeeList/${empId}`).subscribe((data) => {
+      debugger;
+    })
   }
 
   returnObservable(): Observable<string> {
@@ -41,5 +51,29 @@ export class DataService {
           observer.next(currentTime)
       }, 1000)
     });
+  }
+
+  addEmployee(userId, userName, userAvatar) {
+    this._http.post(`http://localhost:3000/employeeList`, {
+      id: userId,
+      name: userName,
+      avatar: userAvatar,
+      createdAt: new Date().toString()
+    }).subscribe(() => {
+      alert("Data Updated....")
+    }, (err) => {
+      this._http.post(`http://localhost:3000/employeeList`, {
+        id: Math.floor(Math.random() * 100) + 110,
+        name: userName,
+        avatar: userAvatar,
+        createdAt: new Date().toString()
+      }).subscribe(() => {
+        alert("Data Updated....")
+      }, (err) => {
+        alert("data Updation Failed...")
+      })
+    }, () => {
+      alert("Complete...")
+    })
   }
 }

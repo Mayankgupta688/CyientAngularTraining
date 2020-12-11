@@ -24,6 +24,9 @@ import { UsingSwitchComponent } from './using-switch/using-switch.component';
 import { EmployeesComponent } from './application/components/employees/employees.component';
 import { FilterComponent } from './application/components/filter/filter.component';
 import { InfoComponent } from './application/components/info/info.component';
+import { SelectedComponent } from './application/components/selected/selected.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { AppDataComponent, InitializationComponent } from './initialization/initialization.component';
 
 @NgModule({
     declarations: [
@@ -47,13 +50,17 @@ import { InfoComponent } from './application/components/info/info.component';
         UsingSwitchComponent,
         EmployeesComponent,
         FilterComponent,
-        InfoComponent
+        InfoComponent,
+        SelectedComponent,
+        AddEmployeeComponent,
+        InitializationComponent,
+        AppDataComponent
     ],
     imports: [
         BrowserModule, 
         FormsModule,
         HttpClientModule
     ],
-    bootstrap: [InfoComponent, EmployeesComponent]
+    bootstrap: [InitializationComponent]
 })
 export class AppModule { }

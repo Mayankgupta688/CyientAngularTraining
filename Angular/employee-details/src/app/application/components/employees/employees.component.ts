@@ -11,14 +11,15 @@ export class EmployeesComponent {
   filterList: any[] = [];
   currentTime: string = "";
 
-  constructor(private _dataService: DataService) { 
+  constructor(public _dataService: DataService) { 
     this._dataService.getEmployeeList()
     this.filterList = this.employeeList;
 
     this._dataService.getEmployeeList().subscribe(data => {
       this.employeeList = data;
       this.filterList = data;
-    })
+      this._dataService.empList = data;
+    });
 
     this._dataService.notifyDeleteEvent.subscribe(() => {
       this.employeeList = []
