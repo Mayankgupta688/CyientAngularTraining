@@ -1,0 +1,19 @@
+<div>
+    <div [ngSwitch]="country">
+        <div *ngSwitchCase="'India'">
+            <b>I live in India...</b>
+        </div>
+
+        <div *ngSwitchCase="'China'">
+            <b>I live in Interpolated {{country}}...</b>
+        </div>
+
+        <div *ngSwitchCase="'Africa'">
+            <b>I live in Africa...</b>
+        </div>
+
+        <div *ngSwitchDefault>
+            <b>I live in Unknown Region...</b>
+        </div>
+    </div>
+</div>

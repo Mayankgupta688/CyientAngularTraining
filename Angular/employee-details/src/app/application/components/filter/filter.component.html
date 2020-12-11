@@ -1,0 +1,4 @@
+<div>
+    <input type="text" placeholder="Enter Employee To Filter" [ngModel]="filterText" (ngModelChange)="filterData($event)" >
+    <input type="button" value="Filter List" (click)="filterData()" />
+</div>

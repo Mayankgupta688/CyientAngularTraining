@@ -1,0 +1,15 @@
+<div>
+    <h1 style="color: red;">The Employee List is Given Below:</h1><br/>
+
+    <h4>Employee List: {{_dataService.empList.length}}</h4>
+
+    <h5>Current Time is: {{currentTime}}</h5>
+
+    <app-filter></app-filter><br/><br/>
+    
+    <div *ngFor="let employee of filterList">
+        <app-details [employee]="employee"></app-details>
+    </div><hr/>
+
+
+</div>
