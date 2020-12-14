@@ -1,0 +1,9 @@
+<h1>Working with Reactive Forms...</h1>
+
+Enter Date for Name: <input required type="text" [formControl]="userName" />
+<b *ngIf="userName.status == 'INVALID' && userName.touched == true" 
+   style="color: red; font-size: 12px; padding-left: 10px;">Enter Value Before You Proceed...</b><br/><br/>
+
+<input [disabled]="userName.status == 'INVALID'" 
+       type="button" value="Get Input Value" 
+       (click)="getData()" />

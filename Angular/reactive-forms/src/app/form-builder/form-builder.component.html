@@ -1,0 +1,14 @@
+<form [formGroup]="profileForm">
+    <label>First Name: </label><input type="text" formControlName="firstName"/><br/><br/>
+    <label>Last Name: </label><input type="text" formControlName="lastName" /><br/><br/>
+    <label>User Age: </label><input type="text" formControlName="userAge" /><br/><br/>
+
+    <div style="border: 1px solid red; padding: 5px; margin: 5px;" formGroupName="address">
+        <label>First Street: </label><input type="text" formControlName="street"/><br/><br/>
+        <label>First Country: </label><input type="text" formControlName="city"/><br/><br/>
+        <label style="color: red">Enter Address Details</label>
+    </div>
+
+    <input type="button" (click)="randomFunction()" value="jdkgadf" />
+    <button type="submit" [disabled]="profileForm.controls.address.status == 'INVALID'">Submit</button>
+</form>

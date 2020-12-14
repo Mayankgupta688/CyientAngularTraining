@@ -1,0 +1,7 @@
+<div class="container"><br/><br/>
+    Enter Name: <input type="text" [(ngModel)]="userName" />
+    <label style="color: red; font-size: 12px; margin-left: 5px" *ngIf="formNameInvalid" >Enter Name</label><br/><br/>
+    Enter Id: <input type="number" [(ngModel)]="userId" /><br/><br/>
+    Enter Avatar: <input type="text" [(ngModel)]="userAvatar" /><br/><br/>
+    <input type="button" (click)="submitData()" value="Add Data to Employee List" />
+</div>
