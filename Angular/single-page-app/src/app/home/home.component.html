@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>This is Home Page</h1>
+
+    <div *ngFor="let employee of empList">
+        <b>Employee Name is: {{employee.name}}</b>
+        <input type="button" (click)="redirectToUser(employee.id, employee.name)" value="Get Details" />
+        <hr/><br/>
+    </div>
+</div>

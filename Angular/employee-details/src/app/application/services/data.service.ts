@@ -59,9 +59,9 @@ export class DataService {
       name: userName,
       avatar: userAvatar,
       createdAt: new Date().toString()
-    }).subscribe(() => {
-      alert("Data Updated....")
-    }, (err) => {
+    }).toPromise().then(() => {
+      alert("Data Updated....");
+    }).catch((err) => {
       this._http.post(`http://localhost:3000/employeeList`, {
         id: Math.floor(Math.random() * 100) + 110,
         name: userName,
@@ -72,8 +72,6 @@ export class DataService {
       }, (err) => {
         alert("data Updation Failed...")
       })
-    }, () => {
-      alert("Complete...")
     })
   }
 }
