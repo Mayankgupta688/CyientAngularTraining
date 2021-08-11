@@ -6,9 +6,8 @@
     <div style="border: 1px solid red; padding: 5px; margin: 5px;" formGroupName="address">
         <label>First Street: </label><input type="text" formControlName="street"/><br/><br/>
         <label>First Country: </label><input type="text" formControlName="city"/><br/><br/>
-        <label style="color: red">Enter Address Details</label>
     </div>
 
-    <input type="button" (click)="randomFunction()" value="jdkgadf" />
-    <button type="submit" [disabled]="profileForm.controls.address.status == 'INVALID'">Submit</button>
+    <input type="button" (click)="randomFunction()" value="Sample" />
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
 </form>

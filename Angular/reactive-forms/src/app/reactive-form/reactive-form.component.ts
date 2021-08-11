@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-reactive-form',
+  selector: 'reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.css']
 })
-export class ReactiveFormComponent {
+export class ReactiveFormComponent implements OnInit {
 
   profileForm = new FormGroup({
     firstName: new FormControl("Mayank", Validators.required),
@@ -15,13 +15,26 @@ export class ReactiveFormComponent {
   })
   constructor() { }
 
+  ngOnInit() {
+    this.profileForm.valueChanges.subscribe(val => {
+      alert("Form Value Changed...")
+    });
+
+    this.profileForm.get('firstName').valueChanges.subscribe(val => {
+      alert("firstName value updated....")
+    });
+  }
+
   updateNameValue() {
-    this.profileForm.controls.firstName.setValue("Ankit...")
+    this.profileForm.controls.firstName.setValue("Ankit...");
+    this.profileForm.setValue({
+      firstName: "Ankit",
+      lastName: "Sharma",
+      userAge: 34
+    })
   }
 
   submitDataFromForm() {
     console.dir(this.profileForm.value)
   }
-
-
 }
